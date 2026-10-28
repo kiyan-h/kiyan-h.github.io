@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#192e38">
+  <meta name="description" content="Kiyan Heidari — University of Michigan aerospace engineering student. Selected work in experimental mechanics, materials research, and engineering design.">
+  <title>Kiyan Heidari</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #192e38;
+      --cream: #fbfaf7;
+      --dark: #1c3037;
+      --body: #526168;
+      --rule: #e3e3df;
+      --muted: #748188;
+      --mint: #abdad2;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: var(--cream);
+      color: var(--dark);
+    }
+    a { text-decoration: none; }
+    a:focus-visible { outline: 3px solid #6ab4a8; outline-offset: 5px; border-radius: 3px; }
+    .layout { display: grid; grid-template-columns: 42% 58%; min-height: 100vh; min-height: 100svh; }
+    .intro {
+      background: var(--navy); color: #fff;
+      padding: 88px 87px 79px 98px;
+      display: flex; flex-direction: column;
+      min-width: 0;
+    }
+    .eyebrow { margin: 0; text-transform: uppercase; font-size: 13px; font-weight: 680; letter-spacing: .18em; }
+    .intro .eyebrow { color: #bad1d3; }
+    .header-mark { display: flex; align-items: center; gap: 13px; }
+    .mark { display: block; height: 9px; width: 9px; border-radius: 2px; background: var(--mint); }
+    .intro-main { margin: auto 0; padding: 18px 0 32px; }
+    h1 {
+      font-size: clamp(76px, 6.6vw, 122px);
+      line-height: .96; letter-spacing: -.074em;
+      font-weight: 730; margin: 0 0 38px -5px;
+    }
+    h1 span { display: block; }
+    .role {
+      margin: 0 0 21px; max-width: 505px;
+      color: #fff; font-size: 25px; font-weight: 460;
+      line-height: 1.37; letter-spacing: -.025em;
+    }
+    .description {
+      font-size: 17px; line-height: 1.75; color: #b6c8cd;
+      max-width: 475px; margin: 0;
+    }
+    .intro-bottom { display: flex; flex-direction: column; gap: 31px; }
+    .social { display: flex; gap: 38px; align-items: center; flex-wrap: wrap; }
+    .social a {
+      display: inline-flex; align-items: center; gap: 13px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #8ca5ad;
+      font-size: 17px; font-weight: 560; color: #fff;
+      transition: color .15s, border-color .15s;
+    }
+    .social a:hover { color: var(--mint); border-color: var(--mint); }
+    .social a span { font-size: 18px; font-weight: 400; }
+    .location { color: #809ba4; font-size: 12px; margin: 0; letter-spacing: .125em; text-transform: uppercase; }
+
+    .work { padding: 82px 87px 75px 85px; min-width: 0; background: var(--cream); }
+    .work-heading {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 20px;
+      padding-bottom: 28px;
+    }
+    h2 { font-size: 36px; line-height: 1.15; letter-spacing: -.05em; margin: 0; font-weight: 675; }
+    .work-count { color: #8a969a; font-size: 12px; letter-spacing: .14em; white-space: nowrap; }
+    .project {
+      border-top: 1px solid var(--rule); min-height: 241px;
+      display: grid; grid-template-columns: minmax(0, 1fr) 225px;
+      gap: 40px; align-items: center; padding: 23px 0 26px;
+    }
+    .project:last-child { border-bottom: 1px solid var(--rule); }
+    .project .meta { color: #77848a; font-weight: 580; text-transform: uppercase; font-size: 11px; letter-spacing: .12em; margin: 0 0 14px; }
+    .project h3 { font-size: 24px; font-weight: 685; letter-spacing: -.04em; line-height: 1.24; margin: 0 0 11px; }
+    .project .summary { font-size: 15px; color: var(--body); line-height: 1.55; margin: 0; max-width: 570px; }
+    .project .skills { margin: 13px 0 0; color: #818c91; font-size: 12px; font-weight: 530; }
+    .project figure { padding: 0; margin: 0; width: 225px; height: 151px; border: 1px solid #e0e4e2; background: #fff; overflow: hidden; }
+    .project figure img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .project figure.plot img { object-fit: contain; padding: 3px; }
+    .project.compact { min-height: 160px; grid-template-columns: 1fr; padding: 23px 0; }
+    .project.compact .meta { margin-bottom: 10px; }
+    .project.compact h3 { font-size: 22px; margin-bottom: 8px; }
+    .project.compact .summary { max-width: 790px; }
+    @media (min-width: 1200px) and (max-height: 860px) {
+      .intro { padding-top: 54px; padding-bottom: 46px; }
+      .intro-main { padding: 10px 0 16px; }
+      h1 { font-size: clamp(66px, 5.7vw, 108px); margin-bottom: 24px; }
+      .role { font-size: 22px; }
+      .description { font-size: 15px; line-height: 1.6; }
+      .work { padding-top: 44px; padding-bottom: 36px; }
+      .work-heading { padding-bottom: 16px; }
+      h2 { font-size: 31px; }
+      .project { min-height: 178px; padding: 15px 0; }
+      .project figure { width: 193px; height: 126px; }
+      .project { grid-template-columns: minmax(0,1fr) 193px; gap: 20px; }
+      .project.compact { min-height: 116px; padding: 14px 0; }
+      .project .meta { margin-bottom: 8px; }
+      .project h3 { font-size: 21px; margin-bottom: 7px; }
+      .project .summary { font-size: 13px; }
+      .project .skills { margin-top: 6px; font-size: 11px; }
+      .project.compact h3 { font-size: 19px; }
+      .social a { font-size: 15px; }
+      .intro-bottom { gap: 22px; }
+    }
+    @media (max-width: 1199px) {
+      .intro { padding: 65px 55px 57px; }
+      .work { padding: 62px 54px 55px; }
+      h1 { font-size: clamp(67px, 7.8vw, 100px); }
+      .role { font-size: 21px; }
+      .description { font-size: 15px; }
+      .project { grid-template-columns: minmax(0,1fr) 165px; gap: 20px; min-height: 218px; }
+      .project figure { width: 165px; height: 117px; }
+      .project h3 { font-size: 21px; }
+      .project .summary { font-size: 14px; }
+      .project.compact { min-height: 146px; }
+    }
+    @media (max-width: 850px) {
+      .layout { display: block; }
+      .intro { min-height: 570px; padding: 36px 32px 39px; }
+      .intro-main { padding: 56px 0 62px; }
+      h1 { font-size: clamp(63px, 12vw, 96px); margin-bottom: 30px; }
+      .role { font-size: 22px; }
+      .description { max-width: 560px; }
+      .intro-bottom { gap: 22px; }
+      .work { padding: 52px 32px 70px; }
+      .project { grid-template-columns: minmax(0,1fr) 175px; gap: 26px; }
+      .project figure { width: 175px; height: 125px; }
+    }
+    @media (max-width: 580px) {
+      .intro { min-height: 560px; padding: 28px 24px 30px; }
+      .intro-main { padding: 66px 0 56px; }
+      h1 { font-size: clamp(62px, 15vw, 85px); }
+      .role { font-size: 21px; }
+      .social { gap: 28px; }
+      .social a { font-size: 15px; }
+      .work { padding: 40px 24px 52px; }
+      .work-heading { padding-bottom: 21px; }
+      h2 { font-size: 30px; }
+      .work-count { font-size: 10px; }
+      .project { grid-template-columns: 1fr; padding: 27px 0 30px; gap: 15px; }
+      .project figure { width: 100%; max-width: 420px; height: auto; aspect-ratio: 2.2 / 1; }
+      .project h3 { font-size: 22px; }
+      .project.compact { padding: 25px 0; }
+      .project.compact h3 { font-size: 21px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="layout">
+    <section class="intro" aria-labelledby="name">
+      <div class="intro-main">
+        <h1 id="name"><span>Kiyan</span><span>Heidari.</span></h1>
+        <p class="role">Aerospace Engineering<br>University of Michigan</p>
+        <p class="description">I work across experimental mechanics, composite structures, and computational materials—connecting engineering analysis with real-world testing.</p>
+      </div>
+      <div class="intro-bottom">
+        <nav class="social" aria-label="Professional profiles">
+          <a href="https://github.com/kiyan-h" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/kiyanh/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </nav>
+        <p class="location">Massachusetts - Michigan</p>
+      </div>
+    </section>
+
+    <section class="work" aria-labelledby="projects-heading">
+      <header class="work-heading">
+        <h2 id="projects-heading">Selected projects</h2>
+      </header>
+      <article class="project">
+        <div>
+          <p class="meta">UMass Lowell &nbsp;/&nbsp; 2026</p>
+          <a href="https://github.com/kiyan-h/high-speed-ir"><h3>High-Speed Infrared Thermometry</h3></a>
+          <p class="summary">Developed and calibrated an optical sensing system to measure temperature during polymer deformation, with synchronized acquisition and tensile-test validation.</p>
+          <p class="skills">Optical design · CAD · LabVIEW · Mechanical testing</p>
+        </div>
+        <figure><img src="assets/infrared.webp" alt="Infrared thermal image of a polymer specimen during tensile testing" width="1160" height="797"></figure>
+      </article>
+      <article class="project">
+        <div>
+          <p class="meta">Northeastern University &nbsp;/&nbsp; 2026</p>
+          <a href="https://github.com/kiyan-h/vibration-entropy-benchmark"><h3>Vibrational Entropy Benchmarking</h3></a>
+          <p class="summary">Built a Python workflow comparing fast Debye approximations with phonon calculations, evaluating accuracy and runtime across 158 materials.</p>
+          <p class="skills">Python · MACE · Phonopy · Materials modeling</p>
+        </div>
+        <figure class="plot"><img src="assets/vibrational-entropy.svg" alt="Scatterplot comparing estimated vibrational entropy with phonon calculation results"></figure>
+      </article>
+      <article class="project compact">
+        <div>
+          <p class="meta">Michigan Formula SAE &nbsp;/&nbsp; In progress</p>
+          <h3>MRacing — Composites &amp; Chassis</h3>
+          <p class="summary">Contributing to composite materials and chassis development for a student-designed electric race car.</p>
+        </div>
+      </article>
+      <article class="project compact">
+        <div>
+          <p class="meta">Rayfield Systems &nbsp;/&nbsp; 2025</p>
+          <a href="https://github.com/kiyan-h/rayfield-permitflow"><h3>PermitFlow — Engineering Compliance Prototype</h3></a>
+          <p class="summary">Collaborated on an ML-assisted engineering compliance prototype, including data processing, backend integration, and interface design.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
